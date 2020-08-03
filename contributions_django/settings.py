@@ -33,6 +33,8 @@ DEFAULTS = {
     "INCLUDE_FONTAWESOME": True,
     # The icon to show next to title. Set to None to remove.
     "ICON_CLASSES": "fa fa-calendar",
+    # Instead of boxes, use circles.
+    "CIRCLES": False,
 }
 
 # The user can define a section for CONTRIBUTIONS_DJANGO
@@ -43,6 +45,7 @@ include_fontawesome = updates.get(
     "INCLUDE_FONTAWESOME", DEFAULTS["INCLUDE_FONTAWESOME"]
 )
 icon_classes = updates.get("ICON_CLASSES", DEFAULTS["ICON_CLASSES"])
+use_circles = updates.get("CIRCLES", DEFAULTS["CIRCLES"])
 
 item_name = updates.get("ITEM_NAME", DEFAULTS["ITEM_NAME"])
 gradient0 = updates.get("GRADIENT0", DEFAULTS["GRADIENT0"])

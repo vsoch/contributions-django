@@ -1,6 +1,6 @@
 # GitHub Contributions Django
 
-![https://badge.fury.io/py/contributions-django.svg](https://badge.fury.io/py/contributions-django)
+[![PyPI version](https://badge.fury.io/py/contributions-django.svg)](https://badge.fury.io/py/contributions-django)
 
 Create a GitHub Contributions graph for Django!
 
@@ -10,7 +10,7 @@ Create a GitHub Contributions graph for Django!
 
 This repository serves a Django app that can be used to generate a GitHub
 contributions graph. An [example](example)
-application is provided in `tests` that can be interacted with here.
+application is provided in the `example` folder that can be interacted with here.
 
 ## Quickstart
 
@@ -84,9 +84,20 @@ CONTRIBUTIONS_DJANGO = {
     'INCLUDE_FONTAWESOME': True,
 
     # The icon to show next to title. Set to None to remove.
-    'ICON_CLASSES': "fa fa-calendar"
+    'ICON_CLASSES': "fa fa-calendar",
+
+    # Instead of boxes, use circles.
+    'CIRCLES': True
+
+
 }
 ```
+
+#### Shape
+
+The cells can be circles if you set `CIRCLES` to true:
+
+![img/events_circles.png](img/events_circles.png)
 
 #### Colors
 
@@ -184,7 +195,7 @@ mostly your application in development mode:
 ```bash
 python -m venv env
 source env/bin/activate
-cd tests
+cd example
 pip install -r requirements.txt
 ```
 
