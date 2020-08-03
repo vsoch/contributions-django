@@ -1,0 +1,212 @@
+{% load static %}
+{% if contributions_django.include_bootstrap %}<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">{% endif %}
+{% if contributions_django.include_fontawesome %}<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">{% endif %}
+<style>
+.contrib_grad0 {
+  background-color: {{ contributions_django.gradients.0 }};
+}
+
+.contrib_grad1 {
+  background-color: {{ contributions_django.gradients.1 }};
+}
+
+.contrib_grad2 {
+  background-color: {{ contributions_django.gradients.2 }};
+}
+
+.contrib_grad3 {
+  background-color: {{ contributions_django.gradients.3 }};
+}
+
+.contrib_grad4 {
+  background-color: {{ contributions_django.gradients.4 }};
+}
+
+/*------------------------------------*\
+  # PANEL STYLES
+\*------------------------------------*/
+.panel {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.panel-heading {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/*------------------------------------*\
+  # CELLS
+\*------------------------------------*/
+.calendar-row {
+  display: table;
+  border-spacing: 2px 1px;
+}
+
+.cell {
+  width: 15px;
+  height: 15px;
+  min-width: 15px;
+  min-height: 15px;
+  margin: 1px;
+  display: table-cell;
+  resize: none;
+}
+
+.cell:hover {
+  border: 1px solid #333;
+}
+
+.contrib_empty:hover {
+  border: none;
+}
+
+.weekday-heading {
+  color: #ccc;
+  text-align: right;
+  font-size: 0.8em;
+  padding-right: 3px;
+  width: 30px;
+}
+
+.month-heading {
+  width: 32px;
+  font-size: 0.8em;
+  text-align: left;
+  color: #aaa;
+}
+
+.legend {
+  margin-top: 16px;
+}
+
+/*------------------------------------*\
+  # TOOLTIPS
+\*------------------------------------*/
+.cell {
+  position: relative;
+  z-index: 24;
+}
+
+.cell:hover {
+  z-index: 25;
+}
+
+.cell span {
+  display: none;
+}
+
+.cell:hover span {
+  width: 255px;
+  height: 30px;
+  top: -45px;
+  left: -110px;
+  display: inline-block;
+  position: absolute;
+  background-color: rgba(1, 1, 1, 0.8);
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 4px;
+  line-height: 30px;
+  vertical-align: middle;
+}
+
+.cell:hover span:before {
+  border: solid;
+  border-color: rgba(1, 1, 1, 0.8) transparent;
+  border-width: 7px 7px 0 7px;
+  bottom: -7px;
+  content: "";
+  left: 110px;
+  position: absolute;
+  z-index: 99;
+}
+
+.contrib_empty:hover span {
+  display: none;
+}
+
+/*------------------------------------*\
+  # STATISTICS
+\*------------------------------------*/
+.statistics.row {
+  border-top: 1px solid #ddd;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.statistics .col-md-4 {
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 12px;
+}
+
+.col-md-4.middle {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.annotation {
+  color: #aaa;
+  font-size: 0.85em;
+  margin-bottom: 2px;
+}
+
+.big_stat {
+  font-size: 2.4em;
+  margin-bottom: 5px;
+}
+</style>
+<div class="panel panel-default">
+      <div class="panel-body">
+       <p>{% if contributions_django.icon_classes %}<i class="{{ contributions_django.icon_classes }}" aria-hidden="true" style="padding-right:10px"></i>{% endif %}{{ contributions_django.graph.title }}</p>
+        <center>
+        <div class="contributions-graph">
+          <div class="calendar-row">
+            <div class="cell weekday-heading contrib_empty"></div>
+            {% for month in contributions_django.months %}
+            {% if month %}<div class="cell month-heading contrib_empty">{{ month }}</div>{% else %}<div class="cell contrib_empty"></div>{% endif %}{% endfor %}
+          </div>
+          {% for row in contributions_django.graph.data %}
+          <div class="calendar-row">
+            <div class="cell weekday-heading contrib_empty">
+              {{ contributions_django.weekdays|last }}
+            </div>
+            {% for cell in row %}
+            <div class="cell contrib_{{ cell.cell_class }}">
+              <span>{{ cell.tooltip }}</span>
+            </div>
+            {% endfor %}
+          </div>
+          {% endfor %}
+          <div class="calendar-row legend">
+            <div class="cell weekday-heading contrib_empty"></div>
+            {% for _ in contributions_django.graph.range %}
+            <div class="cell contrib_empty"></div>
+            {% endfor %}
+            <div class="cell contrib_empty month-heading">Less</div>
+            <div class="cell contrib_empty contrib_grad0"></div>
+            <div class="cell contrib_empty contrib_grad1"></div>
+            <div class="cell contrib_empty contrib_grad2"></div>
+            <div class="cell contrib_empty contrib_grad3"></div>
+            <div class="cell contrib_empty contrib_grad4"></div>
+            <div class="cell contrib_empty month-heading">&nbsp;More</div>
+            <div class="cell contrib_empty"></div>
+            <div class="cell contrib_empty"></div>
+            <div class="cell contrib_empty"></div>
+          </div>
+        </div>
+      </div>
+      <div class="statistics row">
+        <div class="col-md-12">
+          <p class="annotation">Total contributions</p>
+          <p class="big_stat">{{ contributions_django.graph.sum }}</p>
+          <p class="annotation">{{ contributions_django.graph.start_date }} &ndash; {{ contributions_django.graph.today_date }}</p>
+        </div>
+      </div>
+    </div>

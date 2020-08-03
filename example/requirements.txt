@@ -1,0 +1,3 @@
+-r ../requirements.txt
+# -e ensures that we install in development mode
+-e ../
