@@ -86,6 +86,7 @@ def generate_contributors_graph(items, title="Contributions"):
             "include_fontawesome": settings.include_fontawesome,
             "icon_classes": settings.icon_classes,
             "gradients": settings.gradients,
+            "use_circles": settings.use_circles,
         }
     }
 

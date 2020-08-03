@@ -84,7 +84,10 @@ CONTRIBUTIONS_DJANGO = {
     'INCLUDE_FONTAWESOME': True,
 
     # The icon to show next to title. Set to None to remove.
-    'ICON_CLASSES': "fa fa-calendar"
+    'ICON_CLASSES': "fa fa-calendar",
+   
+    # Use circles instead of boxes
+    'CIRCLES': False,
 }
 
 WSGI_APPLICATION = "example.wsgi.application"
