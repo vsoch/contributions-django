@@ -14,4 +14,5 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip.
 
 ## [0.0.x](https://github.com/vsoch/contributions_django/tree/master) (0.0.x)
+ - first release (0.0.1)
  - skeleton release (0.0.0)
