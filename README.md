@@ -1,12 +1,12 @@
 # GitHub Contributions Django
 
-![https://badge.fury.io/py/django-oci.svg](https://badge.fury.io/py/django-oci)
-![https://travis-ci.org/vsoch/django-oci.svg?branch=master](https://travis-ci.org/vsoch/django-oci)
-![https://codecov.io/gh/vsoch/django-oci/branch/master/graph/badge.svg](https://codecov.io/gh/vsoch/django-oci)
+![https://badge.fury.io/py/contributions-django.svg](https://badge.fury.io/py/contributions-django)
 
 Create a GitHub Contributions graph for Django!
 
+![img/events.png](img/events.png)
 ![img/events_blue.png](img/events_blue.png)
+![img/events.png](img/events_pink.png)
 
 This repository serves a Django app that can be used to generate a GitHub
 contributions graph. An [example](example)
@@ -106,12 +106,12 @@ The default (akin to GitHub) is a set of greens:
 Here is the settings for a blue:
 
 ```python
-    # Gradients (0 or weak to stronger)
-    'GRADIENT0': "#eee", # this is empty gray, likely don't want to change this
-    'GRADIENT1': "#90E0EF",
-    'GRADIENT2': "#00B4D8",
-    'GRADIENT3': "#0077B6",
-    'GRADIENT4': "#03045E", # this should be the darkest
+# Gradients (0 or weak to stronger)
+'GRADIENT0': "#eee", # this is empty gray, likely don't want to change this
+'GRADIENT1': "#90E0EF",
+'GRADIENT2': "#00B4D8",
+'GRADIENT3': "#0077B6",
+'GRADIENT4': "#03045E", # this should be the darkest
 ```
 
 ![img/events_blue.png](img/events_blue.png)
@@ -121,12 +121,12 @@ Here is the settings for a blue:
 And pinks!
 
 ```
-    # Gradients (0 or weak to stronger) - below is green
-    'GRADIENT0': "#eee", # this is empty gray, likely don't want to change this
-    'GRADIENT1': "#fbc3bc",
-    'GRADIENT2': "#f7a399",
-    'GRADIENT3': "#f38375",
-    'GRADIENT4': "#ef6351", # this should be the darkest
+# Gradients (0 or weak to stronger) - below is green
+'GRADIENT0': "#eee", # this is empty gray, likely don't want to change this
+'GRADIENT1': "#fbc3bc",
+'GRADIENT2': "#f7a399",
+'GRADIENT3': "#f38375",
+'GRADIENT4': "#ef6351", # this should be the darkest
 ```
 
 ![img/events_pink.png](img/events_pink.png)
@@ -264,7 +264,7 @@ python manage.py runserver
 
 I suggest that you follow the same steps to set up the example app:
 
-```
+```bash
 python -m venv env
 pip install -r requirements.txt
 source env/bin/activate
